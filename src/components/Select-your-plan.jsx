@@ -29,7 +29,11 @@ const SelectYourPlan = ({ active, setActive }) => {
     setActive(active - 1);
   };
 
-  console.log(active);
+  const handleIncrement = (e) => {
+    e.preventDefault();
+    setActive(active + 1);
+  };
+
   return (
     <div className="flex flex-col gap-10 w-full">
       <div>
@@ -63,7 +67,10 @@ const SelectYourPlan = ({ active, setActive }) => {
         <button className="text-violet-950" onClick={handleDecrement}>
           Go Back
         </button>
-        <button className="text-white bg-violet-950 px-5 py-4 rounded-md">
+        <button
+          className="text-white bg-violet-950 px-5 py-4 rounded-md"
+          onClick={handleIncrement}
+        >
           Next Step
         </button>
       </div>
