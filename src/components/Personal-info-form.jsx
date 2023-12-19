@@ -1,9 +1,15 @@
 import { useState } from "react";
 
-const PersonalForm = ({ active, setActive }) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phoneN, setPhoneN] = useState("");
+const PersonalForm = ({
+  active,
+  setActive,
+  name,
+  setName,
+  email,
+  setEmail,
+  phoneN,
+  setPhoneN,
+}) => {
   const [errors, setErrors] = useState({
     name: "",
     email: "",

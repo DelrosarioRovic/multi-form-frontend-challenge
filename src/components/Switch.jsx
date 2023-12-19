@@ -1,13 +1,18 @@
 import { useState } from "react";
 import { Switch } from "@headlessui/react";
 
-const SwitchComp = ({ setEnabled, enabled }) => {
+const SwitchComp = ({ setEnabled, enabled, isSwitch, setIsSwitch }) => {
+  const handleChange = () => {
+    setEnabled(!enabled);
+    setIsSwitch(!isSwitch);
+  };
+
   return (
     <Switch
       checked={enabled}
-      onChange={setEnabled}
+      onChange={handleChange}
       className={`${
-        enabled ? "bg-blue-600" : "bg-gray-200"
+        enabled ? "bg-violet-950" : "bg-violet-950"
       } relative inline-flex h-6 w-11 items-center rounded-full`}
     >
       <span className="sr-only">Enable notifications</span>
