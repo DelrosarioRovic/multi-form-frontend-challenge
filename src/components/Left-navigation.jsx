@@ -23,18 +23,18 @@ const navItem = [
 
 const LeftNavigation = ({ setActive, active }) => {
   return (
-    <div className="left-nav p-5 pr-20 pt-10 rounded-lg">
-      <ul className="flex flex-col gap-7">
+    <div className="left-nav p-5 pr-20 pt-10 rounded-lg max-md:px-0 max-sm:rounded-none">
+      <ul className="flex flex-col gap-7 max-md:flex-row max-md:justify-center max-md:gap-3">
         {navItem.map((item, index) => (
           <li className="flex gap-5 items-center px-1" key={index}>
             <span
-              className={`rounded-full px-3 py-1 outline outline-white outline-1 text-white ${
+              className={`font-semibold rounded-full px-3 py-1 outline outline-white outline-1 text-white ${
                 index === active && "bg-white !text-violet-950 outline-0"
               }`}
             >
               {item.num}
             </span>
-            <div className="flex flex-col gap-x-2">
+            <div className="flex flex-col gap-x-2 max-md:hidden">
               <p className="text-white opacity-60 font-light text-xs">
                 {item.step}
               </p>

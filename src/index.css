@@ -4,4 +4,15 @@
 
 .left-nav {
   background-image: url("../src/assets/images/bg-sidebar-desktop.svg");
+  background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 768px) {
+  .left-nav {
+    background-image: url("../src/assets/images/bg-sidebar-mobile.svg");
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover;
+    height: 200px;
+  }
 }

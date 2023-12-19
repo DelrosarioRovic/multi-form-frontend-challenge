@@ -27,7 +27,7 @@ const Content = ({
   setSelectedAddCons,
 }) => {
   return (
-    <div className="flex p-10 lg:w-[700px] lg:h-[500px] justify-center">
+    <div className="flex p-10 lg:w-[700px] lg:h-[500px] justify-center max-md:shadow-xl max-md:bg-white max-md:rounded-lg max-md:relative max-md:-top-20 max-md:w-full">
       {active === 0 ? (
         <PersonalForm
           setActive={setActive}

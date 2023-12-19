@@ -76,7 +76,7 @@ const SelectYourPlan = ({
     <div
       className={`border ${
         planSelect === index && "border-violet-950"
-      } w-[33%] px-5 py-2 flex flex-col gap-5 rounded-md`}
+      } w-[33%] px-5 py-2 max-sm:py-5 flex flex-col gap-5 rounded-md max-sm:w-full max-sm:flex-row`}
       key={index}
       onClick={() => handleSelectPlan(index)}
     >
@@ -84,7 +84,7 @@ const SelectYourPlan = ({
         <img src={plan.plansIcon} alt={plan.title} />
       </div>
       <div>
-        {!isSwitch && <p className="h-6 w-full"></p>}
+        {!isSwitch && <p className="h-6 w-full max-sm:hidden"></p>}
         <p className="text-violet-950">{plan.title}</p>
         <p className="text-gray-400">${plan.price}/mo </p>
         {isSwitch && <p>{plan.free}</p>}
@@ -100,7 +100,7 @@ const SelectYourPlan = ({
           You have the option of monthly or yearly billing.
         </p>
       </div>
-      <div className="flex justify-evenly ${}py-5 gap-5">
+      <div className="flex justify-evenly py-5 gap-5 max-sm:flex-col">
         {isSwitch ? plansYearly.map(renderPlan) : plansMonthly.map(renderPlan)}
       </div>
       <div className="flex w-full justify-evenly py-[10px]">
