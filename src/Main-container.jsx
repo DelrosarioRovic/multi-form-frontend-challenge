@@ -13,6 +13,9 @@ const MainContainer = () => {
   const [selectedPlan, setSelectedPlan] = useState({});
   const [enabled, setEnabled] = useState(false);
   const [isSwitch, setIsSwitch] = useState(false);
+  //adds ons
+  const [selectedAddNum, setSelectedAddNum] = useState([0]);
+  const [selectedAddCons, setSelectedAddCons] = useState([]);
 
   return (
     <div className="bg-white flex gap-5 shadow-lg p-5 rounded-lg">
@@ -36,6 +39,11 @@ const MainContainer = () => {
         setEnabled={setEnabled}
         isSwitch={isSwitch}
         setIsSwitch={setIsSwitch}
+        //adds on
+        selectedAddNum={selectedAddNum}
+        setSelectedAddNum={setSelectedAddNum}
+        selectedAddCons={selectedAddCons}
+        setSelectedAddCons={setSelectedAddCons}
       />
     </div>
   );

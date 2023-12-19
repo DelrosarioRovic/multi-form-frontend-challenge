@@ -114,7 +114,7 @@ const SelectYourPlan = ({
         <span className={`${!isSwitch && "opacity-50"}`}>Yearly</span>
       </div>
       <div className="flex justify-between">
-        <button className="text-violet-950" onClick={handleDecrement}>
+        <button className="text-gray-400" onClick={handleDecrement}>
           Go Back
         </button>
         <button

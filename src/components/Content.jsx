@@ -1,5 +1,7 @@
 import PersonalForm from "./Personal-info-form";
 import SelectYourPlan from "./Select-your-plan";
+import AddsOn from "./Adds-on";
+import Summary from "./Summary";
 
 const Content = ({
   active,
@@ -18,6 +20,10 @@ const Content = ({
   setEnabled,
   isSwitch,
   setIsSwitch,
+  selectedAddNum,
+  setSelectedAddNum,
+  selectedAddCons,
+  setSelectedAddCons,
 }) => {
   return (
     <div className="flex p-10 lg:w-[700px] lg:h-[500px] justify-center">
@@ -45,8 +51,17 @@ const Content = ({
           isSwitch={isSwitch}
           setIsSwitch={setIsSwitch}
         />
+      ) : active === 2 ? (
+        <AddsOn
+          setActive={setActive}
+          active={active}
+          selectedAddNum={selectedAddNum}
+          setSelectedAddNum={setSelectedAddNum}
+          selectedAddCons={selectedAddCons}
+          setSelectedAddCons={setSelectedAddCons}
+        />
       ) : (
-        <p>gg</p>
+        <Summary selectedPlan={selectedPlan} />
       )}
     </div>
   );
