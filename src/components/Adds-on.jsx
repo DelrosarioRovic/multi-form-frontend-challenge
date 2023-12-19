@@ -1,24 +1,43 @@
-const AddsOnArr = [
+const AddsOnArrMonth = [
   {
     title: "Online service",
     desc: "Access to multiplayer games",
-    price: "+$1/mo",
+    price: 1,
   },
   {
     title: "Larger storage",
     desc: "Extra 1TB of cloud save",
-    price: "+$2/mo",
+    price: 2,
   },
   {
     title: "Customizable Profile",
     desc: "Custom theme on your profile",
-    price: "+$2/mo",
+    price: 2,
+  },
+];
+
+const AddsOnArrYear = [
+  {
+    title: "Online service",
+    desc: "Access to multiplayer games",
+    price: 10,
+  },
+  {
+    title: "Larger storage",
+    desc: "Extra 1TB of cloud save",
+    price: 20,
+  },
+  {
+    title: "Customizable Profile",
+    desc: "Custom theme on your profile",
+    price: 20,
   },
 ];
 
 const AddsOn = ({
   active,
   setActive,
+  isSwitch,
   selectedAddNum,
   setSelectedAddNum,
   selectedAddCons,
@@ -32,6 +51,16 @@ const AddsOn = ({
   const handleIncrement = (e) => {
     e.preventDefault();
     setActive(active + 1);
+
+    selectedAddNum.forEach((num) => {
+      setSelectedAddCons((prev) => {
+        if (isSwitch) {
+          return [...prev, AddsOnArrYear[num]];
+        } else {
+          return [...prev, AddsOnArrMonth[num]];
+        }
+      });
+    });
   };
 
   const handleAddSelectedNum = (index) => {
@@ -47,6 +76,30 @@ const AddsOn = ({
     });
   };
 
+  const renderPlan = (adds, index) => (
+    <div
+      className={`flex justify-between items-center border ${
+        selectedAddNum.includes(index) && "border-violet-700"
+      } rounded-md px-5 py-2`}
+      key={index}
+    >
+      <div className="flex items-center gap-5">
+        <input
+          type="checkbox"
+          onChange={() => handleAddSelectedNum(index)}
+          checked={selectedAddNum.includes(index)}
+        />
+        <div>
+          <p className="text-violet-950 font-semibold">{adds.title}</p>
+          <p className="text-gray-400">{adds.desc}</p>
+        </div>
+      </div>
+      <div>
+        <p className="text-violet-600 font-semibold">+${adds.price}/mo</p>
+      </div>
+    </div>
+  );
+
   return (
     <div className="flex flex-col gap-10 w-full">
       <div>
@@ -56,29 +109,9 @@ const AddsOn = ({
         </p>
       </div>
       <div className="flex flex-col gap-5">
-        {AddsOnArr.map((adds, index) => (
-          <div
-            className={`flex justify-between items-center border ${
-              selectedAddNum.includes(index) && "border-violet-700"
-            } rounded-md px-5 py-2`}
-            key={index}
-          >
-            <div className="flex items-center gap-5">
-              <input
-                type="checkbox"
-                onChange={() => handleAddSelectedNum(index)}
-                checked={selectedAddNum.includes(index)}
-              />
-              <div>
-                <p className="text-violet-950 font-semibold">{adds.title}</p>
-                <p className="text-gray-400">{adds.desc}</p>
-              </div>
-            </div>
-            <div>
-              <p className="text-violet-600 font-semibold">{adds.price}</p>
-            </div>
-          </div>
-        ))}
+        {isSwitch
+          ? AddsOnArrYear.map(renderPlan)
+          : AddsOnArrMonth.map(renderPlan)}
       </div>
       <div className="flex justify-between">
         <button className="text-gray-400" onClick={handleDecrement}>

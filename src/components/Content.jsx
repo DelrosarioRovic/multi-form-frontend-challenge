@@ -2,6 +2,7 @@ import PersonalForm from "./Personal-info-form";
 import SelectYourPlan from "./Select-your-plan";
 import AddsOn from "./Adds-on";
 import Summary from "./Summary";
+import Confirm from "./Confirm";
 
 const Content = ({
   active,
@@ -55,13 +56,23 @@ const Content = ({
         <AddsOn
           setActive={setActive}
           active={active}
+          isSwitch={isSwitch}
           selectedAddNum={selectedAddNum}
           setSelectedAddNum={setSelectedAddNum}
           selectedAddCons={selectedAddCons}
           setSelectedAddCons={setSelectedAddCons}
         />
+      ) : active === 3 ? (
+        <Summary
+          setActive={setActive}
+          active={active}
+          isSwitch={isSwitch}
+          selectedPlan={selectedPlan}
+          selectedAddCons={selectedAddCons}
+          setSelectedAddCons={setSelectedAddCons}
+        />
       ) : (
-        <Summary selectedPlan={selectedPlan} />
+        <Confirm />
       )}
     </div>
   );

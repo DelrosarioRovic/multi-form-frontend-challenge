@@ -22,10 +22,6 @@ const navItem = [
 ];
 
 const LeftNavigation = ({ setActive, active }) => {
-  const getIndex = (index) => {
-    setActive(index);
-  };
-
   return (
     <div className="left-nav p-5 pr-20 pt-10 rounded-lg">
       <ul className="flex flex-col gap-7">
@@ -35,7 +31,6 @@ const LeftNavigation = ({ setActive, active }) => {
               className={`rounded-full px-3 py-1 outline outline-white outline-1 text-white ${
                 index === active && "bg-white !text-violet-950 outline-0"
               }`}
-              onClick={() => getIndex(index)}
             >
               {item.num}
             </span>

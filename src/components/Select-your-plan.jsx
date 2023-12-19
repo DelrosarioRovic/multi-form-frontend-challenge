@@ -18,17 +18,17 @@ const SelectYourPlan = ({
     {
       plansIcon: arcadeIcon,
       title: "Arcade",
-      price: "$9/mo",
+      price: 9,
     },
     {
       plansIcon: puzzleIcon,
       title: "Advanced",
-      price: "$12/mo",
+      price: 12,
     },
     {
       plansIcon: proIcon,
       title: "Pro",
-      price: "$15/mo",
+      price: 15,
     },
   ];
 
@@ -36,19 +36,19 @@ const SelectYourPlan = ({
     {
       plansIcon: arcadeIcon,
       title: "Arcade",
-      price: "$90/mo",
+      price: 90,
       free: "2 months free",
     },
     {
       plansIcon: puzzleIcon,
       title: "Advanced",
-      price: "$120/mo",
+      price: 120,
       free: "2 months free",
     },
     {
       plansIcon: proIcon,
       title: "Pro",
-      price: "$150/mo",
+      price: 150,
       free: "2 months free",
     },
   ];
@@ -86,7 +86,7 @@ const SelectYourPlan = ({
       <div>
         {!isSwitch && <p className="h-6 w-full"></p>}
         <p className="text-violet-950">{plan.title}</p>
-        <p className="text-gray-400">{plan.price}</p>
+        <p className="text-gray-400">${plan.price}/mo </p>
         {isSwitch && <p>{plan.free}</p>}
       </div>
     </div>
